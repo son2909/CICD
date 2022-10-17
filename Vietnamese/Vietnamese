@@ -1,10 +1,12 @@
-var readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+//importing node framework
+var express = require('express');
+var app = express();
+//Respond with "hello world" for requests that hit our root "/"
+app.get('/', function (req, res) {
+	res.send('hello world');
 });
-rl.question('What do you think of Node.js? ', answer => {
-  // TODO: Log the answer in a database
-  console.log(`Thank you for your valuable feedback: ${ answer }`);
-  rl.close();
+//listen to port 3000 by default
+app.listen(3000, () => {
+	console.log('server running on port 3000');
 });
+module.exports = app;
